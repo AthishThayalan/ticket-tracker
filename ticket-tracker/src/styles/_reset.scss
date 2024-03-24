@@ -1,0 +1,9 @@
+@use "./fonts";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgb(38, 36, 36);
+  color: white;
+  font-family: "poppins";
+}
