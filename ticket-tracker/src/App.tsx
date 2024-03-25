@@ -9,11 +9,15 @@ function App() {
   const [nameFilter, setNameFilter] = useState("");
   const [roleFilter, setRoleFilter] = useState("");
 
-  const handleNameFilterChange = (event: any) => {
+  const handleNameFilterChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setNameFilter(event.target.value);
   };
 
-  const handleRoleFilterChange = (event: any) => {
+  const handleRoleFilterChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
     setRoleFilter(event.target.value);
   };
 

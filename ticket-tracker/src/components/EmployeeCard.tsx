@@ -1,12 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 type Employee = {
   id: number;
   name: string;
   role: string;
 };
 
-const EmployeeCard = ({ name, role }: Employee) => {
-  const [count, setCount] = useState(0);
+const EmployeeCard = ({ id, name, role }: Employee) => {
+  const [count, setCount] = useState(() => {
+    const storedCount = localStorage.getItem(`count_${id}`);
+    return storedCount ? Number(storedCount) : 0;
+  });
+
+  useEffect(() => {
+    localStorage.setItem(`count_${id}`, String(count));
+  }, [count]);
 
   const increment = () => {
     setCount((prevCount) => prevCount + 1);
