@@ -1,3 +1,4 @@
+import "./Header.scss";
 type HeaderProps = {
   nameFilter: string;
   handleNameFilterChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -19,12 +20,12 @@ const Header = ({
           value={nameFilter}
           onChange={handleNameFilterChange}
           placeholder="Filter by Name"
-          className="name-filter"
+          className="filter__input"
         />
         <select
           value={roleFilter}
           onChange={handleRoleFilterChange}
-          className="role-filter"
+          className="filter__select"
         >
           <option value="">Any</option>
           <option value="Junior Software Developer">
