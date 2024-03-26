@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import Counter from "../Counter/Counter";
+import "./EmployeeCard.scss";
 type Employee = {
   id: number;
   name: string;
@@ -26,15 +28,7 @@ const EmployeeCard = ({ id, name, role }: Employee) => {
     <div className="card">
       <h2 className="card__name">{name}</h2>
       <h3 className="card__role">{role}</h3>
-      <div className="card__counter">
-        <button className="card__counter--decrement" onClick={decrement}>
-          -
-        </button>
-        <p className="card__counter-value">{count}</p>
-        <button className="card__counter--increment" onClick={increment}>
-          +
-        </button>
-      </div>
+      <Counter count={count} increment={increment} decrement={decrement} />
     </div>
   );
 };
