@@ -12,7 +12,7 @@ const Nav = () => {
         </li>
         <li className="navbar__item">
           <Link to="/tickets" className="navbar__link">
-            All Tickets
+            Tickets
           </Link>
         </li>
       </ul>

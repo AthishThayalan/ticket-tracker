@@ -1,39 +1,38 @@
+import { useParams } from "react-router-dom";
+import team from "../../data/team";
+import Default from "../../../public/default.jpg";
 import "./ProfilePage.scss";
 
 const ProfilePage = () => {
-  const profileData = {
-    id: 1,
-    name: "Alima Miller",
-    role: "Junior Software Developer",
-    profile: {
-      experience: "1 year",
-      department: "Engineering",
-      techstack: ["JavaScript", "React", "Node.js"],
-      profilePicture:
-        "https://eu.ui-avatars.com/api/?name=Alima+Miller&size=250",
-    },
-  };
+  const { id } = useParams();
+  const employee = team.find(
+    (employee) => employee.id === parseInt(id as string)
+  );
+
+  if (!employee) {
+    return <div>Employee not found</div>;
+  }
+  const profilePicture = employee.profile.profilePicture || Default;
 
   return (
     <div className="profile__container">
       <div className="profile__header">
         <img
-          src={profileData.profile.profilePicture}
-          alt={profileData.name}
+          src={profilePicture}
+          alt={employee.name}
           className="profile__picture"
         />
         <div className="profile__info">
-          <h1>{profileData.name}</h1>
-          <h2>{profileData.role}</h2>
+          <h1>{employee.name}</h1>
+          <h2>{employee.role}</h2>
           <p>
-            <strong>Experience:</strong> {profileData.profile.experience}
+            <strong>Experience:</strong> {employee.profile.experience}
           </p>
           <p>
-            <strong>Department:</strong> {profileData.profile.department}
+            <strong>Department:</strong> {employee.profile.department}
           </p>
           <p>
-            <strong>Tech Stack:</strong>{" "}
-            {profileData.profile.techstack.join(", ")}
+            <strong>Tech Stack:</strong> {employee.profile.techstack.join(", ")}
           </p>
         </div>
       </div>
