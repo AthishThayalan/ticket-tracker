@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "./EmployeeName.scss";
 
 const EmployeeName = ({ name }: { name: string }) => {
