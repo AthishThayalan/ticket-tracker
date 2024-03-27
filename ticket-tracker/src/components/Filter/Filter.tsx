@@ -1,4 +1,5 @@
 import team from "../../data/team";
+import "./Filter.scss";
 type FilterProp = {
   nameFilter: string;
   handleNameFilterChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
