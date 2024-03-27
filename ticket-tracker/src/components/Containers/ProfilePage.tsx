@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
 import team from "../../data/team";
-import Default from "../../../public/default.jpg";
+import Default from "../../assets/default.jpg";
 import "./ProfilePage.scss";
 
 const ProfilePage = () => {
   const { id } = useParams();
   const employee = team.find(
-    (employee) => employee.id === parseInt(id as string)
+    (employee) => employee.id === Number(id as string)
   );
 
   if (!employee) {
